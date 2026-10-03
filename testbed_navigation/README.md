@@ -55,7 +55,7 @@ Run each command in a separate terminal (source your workspace in each: `source 
    ros2 launch testbed_navigation localization.launch.py
 ```
 
-5. **Navigation:**
+6. **Navigation:**
 ```bash
    ros2 launch testbed_navigation navigation.launch.py
 ```
