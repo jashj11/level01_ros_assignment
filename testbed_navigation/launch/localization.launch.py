@@ -9,13 +9,10 @@ def generate_launch_description():
 
     testbed_nav_dir = get_package_share_directory('testbed_navigation')
     amcl_yaml_path = os.path.join(testbed_nav_dir, 'config', 'amcl_parms.yaml')
+    testbed_bringup_dir = get_package_share_directory('testbed_bringup')
+    map_yaml_path = os.path.join(testbed_bringup_dir, 'maps', 'testbed_world.yaml')
 
-    map_loader_node = IncludeLaunchDescription(
-    PythonLaunchDescriptionSource(
-      os.path.join(testbed_nav_dir, 'launch', 'map_loader.launch.py'),
-    )
-  ) 
-  
+   
     amcl = Node(
         package = 'nav2_amcl',
         executable = 'amcl',
@@ -33,7 +30,6 @@ def generate_launch_description():
                 'use_sim_time': True,
                 'autostart': True,
                 'node_names': [
-                        'map_server',
                         'amcl'
                     ]
                 }]
@@ -41,7 +37,6 @@ def generate_launch_description():
 
 
     return LaunchDescription([
-        map_loader_node,
         amcl,
         lifecycle_manager_node
     ])
