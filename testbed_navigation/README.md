@@ -45,11 +45,17 @@ Run each command in a separate terminal (source your workspace in each: `source 
   '/imu@sensor_msgs/msg/Imu[gz.msgs.IMU'
 )
 ```
-3. **Localization:**
+3. **Map_Loader:**
 ```bash
-   ros2 launch testbed_navigation localization.launch.py (add map and change durability to Transient_Local)
+   ros2 launch testbed_navigation map_loader.launch.py (add map and change durability to Transient_Local)
+  
 ```
-4. **Navigation:**
+5. **Localization:**
+```bash
+   ros2 launch testbed_navigation localization.launch.py
+```
+
+5. **Navigation:**
 ```bash
    ros2 launch testbed_navigation navigation.launch.py
 ```
